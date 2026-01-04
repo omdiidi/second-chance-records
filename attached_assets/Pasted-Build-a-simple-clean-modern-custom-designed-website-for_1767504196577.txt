@@ -1,0 +1,146 @@
+Build a simple, clean, modern, custom designed website for a Portland record store called “Second Chance Records”.
+
+High level goals
+- Inform customers about the shop, hours, location, what to expect, and why it exists
+- Put the “second chances” mission first, with a dedicated section and helpful resources
+- Include a small, simple shop area with sample vinyl listings, but keep it secondary to the mission and community
+- Make it feel intentionally designed and not like a template
+
+Brand and vibe
+- Minimal, modern, warm, welcoming
+- Subtle visual motif inspired by the logo: an open jail cell door (use as a simple line icon, pattern, or corner mark)
+- Lots of whitespace, clean typography, soft shadows, simple micro animations
+- Avoid generic hero layouts and stock template sections. Make the layout feel editorial and custom.
+
+Site structure
+Create a top navigation with:
+- Home
+- Visit
+- Community
+- Second Chances
+- Shop
+- About Tasha
+- Contact
+Also include a “Shop on Discogs” button in the nav and footer that links to:
+https://www.discogs.com/seller/SecondChance_Records/profile?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleAPG1bxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafw1fqKNOvlhdzd2wOKMPbuJeO1LUmGoDJgAHmORqb6IyTw_YGxFHTAAZuV_Q_aem_p5AZD8q5IONw8N9FS2HdXQ
+
+Homepage requirements (mission first, store not first)
+Home page must NOT start with products or a shop grid.
+Home page sections in this order:
+1) Mission statement hero
+   - Headline: “Second chances for humans and hi-fi.”
+   - Subhead: A short, warm explanation that the shop gives used records a second life and supports the idea that people deserve a real second chance after serving time.
+   - One primary CTA: “Visit the shop”
+   - One secondary CTA: “Second chance resources”
+2) Community events preview
+   - Show 4 to 6 curated Portland area events as cards with title, neighborhood, date or recurrence, and a short description
+   - Include a small note: “Event list is easy to update and can be refreshed monthly.”
+   - Add a CTA button: “View all community events”
+3) About the store preview
+   - Small section with store essentials, not products:
+     - Address: 5744 E Burnside Suite 104 PDX 97215
+     - Hours: Wednesday to Sunday 12 to 8
+     - A short “What you’ll find here” list: used vinyl, lots of genres, fair pricing, cleaned records, new sleeves, listening station, handwritten notes
+   - Include a small embedded map using the address, or a clean “Open in Maps” button if embed is not available
+4) Video section placeholders
+   - Add a “From the shop” section with clean spacing and 2 to 3 video placeholders
+   - Not at the top of the page
+   - Each placeholder should support adding a video later (embed ready) with a short caption area
+5) Reviews highlight
+   - Show rating and a few best review quotes in a clean carousel or stacked cards
+   - Keep owner responses visually smaller than the review text
+6) Gentle closing CTA
+   - “Stop by, dig through the bins, and leave with something that gets a second spin.”
+
+Community page
+- Full events list (same data as the homepage preview, just expanded)
+- Add filters like “Arts”, “Neighborhood”, “Community support”
+- Make events stored in a simple data file so we can update easily
+
+Second Chances page (educational, respectful, helpful)
+- Tone: supportive, non preachy, human
+- Explain the idea in simple terms: people coming home face barriers like work, housing, transportation, and rebuilding trust
+- Include a “Start here” resource list with 6 to 10 cards. Each card should have:
+  - Resource name
+  - What it helps with (jobs, housing, record relief, training, legal help)
+  - Link button
+- Add a disclaimer: “This page is information only and not legal advice.”
+- Include a “How to help” section with ideas like: volunteer, donate, hire fairly, learn, and support local orgs
+
+Shop page (secondary, simple)
+- Keep it small and clean
+- Display a sample grid of 12 records with:
+  - Cover image placeholder
+  - Artist, album, genre, condition, price
+  - Button: “See on Discogs” (link can be the Discogs profile for now)
+- Add a note that online inventory is primarily on Discogs, plus an invitation to visit in store
+- Add simple filters (genre, price range) that work on the sample data
+
+Visit page
+- Address, hours, parking note placeholder, accessibility note placeholder
+- “What we do differently” bullets: cleaned used records, new sleeves, fair pricing, listen before you buy, handwritten notes, friendly help
+- Add a small photo strip with placeholders for 3 to 5 images
+
+About Tasha page
+- Owner name: Tasha Brain
+- Mention she opened the store 6 months ago
+- Add a well written story section but clearly mark it as filler copy so we can replace later.
+  - Use a visible “Filler text” label near the paragraphs
+  - Keep it believable and warm, focused on community, music, and second chances
+- Include a small “Values” section with 4 values
+- Include a small “In the shop” section with 3 short personal touches
+
+Contact page
+- Simple contact form (name, email, message)
+- Buttons for: call, email, directions (use placeholders for phone and email)
+- Business hours repeated
+- Discogs link repeated
+
+Reviews section content
+Use these review quotes exactly as written (do not rewrite names or quotes):
+- Sonja Flater: “Great record store with lots of genres represented... I really enjoyed my time at this sweet shop. I know I'm going to want to return regularly to see all the new stock I'm going to want to add to my collection.”
+  Owner response: “Thank you for the thoughtful review Sonja!”
+- Robert Wente: “I love Second Chance Records... All their used records have been cleaned and come with new sleeves. A very worthy addition to Portlands music scene.”
+  Owner response: “Thank you for the thoughtful review. Look forward to seeing you again!”
+- Inness: “Incredibly sweet, cool owner. Really great little shop, not overwhelming, great stock, fair prices. Love the handwritten notes and being able to listen to every record.”
+  Owner response: “Thank you! Looking forward to having you in the shop again. ✌️”
+- Archie P: “Tasha is awesome! The amount of love and care that is poured into these records is absolutely astounding. So happy to have found this adorable shop in my neighborhood :-)”
+  Owner response: “Thank you Archie! Looking forward to seeing you again. 🤘🏼”
+- Jonas: “Enjoyable new record store, it is noted if a record has surface noise or pops, owner is friendly and knowledgeable.”
+  Owner response: “Thank you Jonas! So kind. Looking forward to seeing you in the shop again! 🙏”
+- sd Martin: “One of the e best little record stores I've ever been into. Great staff, great prices and great selection.”
+  Owner response: “Such a pleasure to have you! And thank you for the kind words.”
+- Jordan Trippett: “Super cute and lovely owner! Will be coming back :)”
+  Owner response: “Thank you! Look forward to seeing you again. :-)”
+- James Jacobsen: “Great Spot! Super friendly, helpful, and great prices!”
+  Owner response: “Thank you! Looking forward to seeing you in the shop again. 😊”
+
+Community events content
+Include a starter list of real Portland area recurring events and a couple concrete dated examples. Store these in a data file so we can easily update.
+Events to include:
+- First Thursday in the Pearl (recurring monthly)
+- Last Thursday on Alberta (recurring monthly)
+- Portland Saturday Market (seasonal recurring)
+- Free First Thursday at Portland Art Museum (include the specific January 8, 2026 example as a starter item)
+- A reentry legal or expungement clinic example (include one concrete dated example)
+For each event card include: title, date or recurrence, neighborhood, short description, and a “Learn more” link.
+
+Design and UI requirements
+- Responsive for mobile, tablet, desktop
+- Clean sticky nav with active state
+- Smooth scroll for on page jumps where appropriate
+- Subtle animations on hover and section reveal
+- Accessibility: good contrast, focus states, semantic headings, alt text placeholders
+- Performance: optimize images, lazy load media, avoid heavy libraries
+
+Content management
+- Put editable content (events, reviews, sample products, videos list, store info) into one simple data module or JSON so changes do not require rewriting components
+- Provide a short README explaining where to update:
+  - Store info
+  - Events
+  - Reviews
+  - Products
+  - Video embeds
+  - Links and contact info placeholders
+
+Finish with a polished, deploy ready project and ensure all pages are connected and styled consistently.

@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X, ExternalLink, Disc } from "lucide-react";
+import { Menu, X, ShoppingBag, Disc, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { SITE_DATA } from "@/lib/data";
 import { Button } from "@/components/ui/button";
@@ -8,6 +8,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [location] = useLocation();
   const [scrolled, setScrolled] = useState(false);
+  const [shopDropdownOpen, setShopDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +23,6 @@ export function Navbar() {
     { href: "/visit", label: "Visit" },
     { href: "/community", label: "Community" },
     { href: "/second-chances", label: "Second Chances" },
-    { href: "/shop", label: "Shop" },
     { href: "/about", label: "About Tasha" },
     { href: "/contact", label: "Contact" },
   ];
@@ -65,12 +65,43 @@ export function Navbar() {
           {navLinks.map((link) => (
             <NavLink key={link.href} {...link} />
           ))}
-          <Button variant="outline" size="sm" asChild className="ml-4 gap-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            <a href={SITE_DATA.general.discogs} target="_blank" rel="noopener noreferrer">
-              <Disc className="w-4 h-4" />
-              Shop on Discogs
-            </a>
-          </Button>
+
+          {/* Shop Dropdown */}
+          <div
+            className="relative ml-4"
+            onMouseEnter={() => setShopDropdownOpen(true)}
+            onMouseLeave={() => setShopDropdownOpen(false)}
+          >
+            <Button
+              variant="outline"
+              size="sm"
+              className="gap-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              Shop
+              <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${shopDropdownOpen ? 'rotate-180' : ''}`} />
+            </Button>
+
+            {shopDropdownOpen && (
+              <div className="absolute top-full right-0 mt-2 w-48 bg-background border border-border rounded-md shadow-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                <Link href="/shop">
+                  <a className="flex items-center gap-3 px-4 py-3 text-sm hover:bg-secondary transition-colors">
+                    <ShoppingBag className="w-4 h-4" />
+                    Online Shop
+                  </a>
+                </Link>
+                <a
+                  href={SITE_DATA.general.discogs}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 text-sm hover:bg-secondary transition-colors border-t border-border"
+                >
+                  <Disc className="w-4 h-4" />
+                  Discogs
+                </a>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -90,12 +121,43 @@ export function Navbar() {
             {navLinks.map((link) => (
               <NavLink key={link.href} {...link} />
             ))}
-            <Button className="w-full gap-2" asChild>
-              <a href={SITE_DATA.general.discogs} target="_blank" rel="noopener noreferrer">
-                <Disc className="w-4 h-4" />
-                Shop on Discogs
-              </a>
-            </Button>
+
+            {/* Mobile Shop Dropdown */}
+            <div className="space-y-2">
+              <button
+                onClick={() => setShopDropdownOpen(!shopDropdownOpen)}
+                className="w-full flex items-center justify-between px-4 py-2 text-sm font-medium border border-primary text-primary rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <ShoppingBag className="w-4 h-4" />
+                  Shop
+                </span>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${shopDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {shopDropdownOpen && (
+                <div className="ml-4 space-y-2 animate-in fade-in slide-in-from-top-1 duration-200">
+                  <Link href="/shop">
+                    <a
+                      className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-secondary rounded-md transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <ShoppingBag className="w-4 h-4" />
+                      Online Shop
+                    </a>
+                  </Link>
+                  <a
+                    href={SITE_DATA.general.discogs}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-secondary rounded-md transition-colors"
+                  >
+                    <Disc className="w-4 h-4" />
+                    Discogs
+                  </a>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}

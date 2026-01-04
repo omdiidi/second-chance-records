@@ -93,11 +93,25 @@ export default function Home() {
             <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
               {SITE_DATA.mission.subhead}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <Button size="lg" className="text-lg px-8 py-6 h-auto font-medium" asChild>
-                <Link href="/visit">Visit the shop</Link>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+              <Button
+                size="lg"
+                className="group relative text-lg px-8 py-6 h-auto font-medium overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                asChild
+              >
+                <Link href="/visit">
+                  <span className="relative z-10 flex items-center gap-2">
+                    Visit the shop
+                    <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+                </Link>
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6 h-auto font-medium bg-transparent border-foreground/20 hover:bg-foreground/5" asChild>
+              <Button
+                variant="outline"
+                size="lg"
+                className="group text-lg px-8 py-6 h-auto font-medium bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
+                asChild
+              >
                 <Link href="/second-chances">Second chance resources</Link>
               </Button>
             </div>

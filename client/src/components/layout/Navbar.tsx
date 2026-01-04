@@ -83,22 +83,24 @@ export function Navbar() {
             </Button>
 
             {shopDropdownOpen && (
-              <div className="absolute top-full right-0 mt-2 w-48 bg-background border border-border rounded-md shadow-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
-                <Link href="/shop">
-                  <a className="flex items-center gap-3 px-4 py-3 text-sm hover:bg-secondary transition-colors">
-                    <ShoppingBag className="w-4 h-4" />
-                    Online Shop
+              <div className="absolute top-full right-0 pt-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="w-48 bg-background border border-border rounded-md shadow-lg overflow-hidden">
+                  <Link href="/shop">
+                    <a className="flex items-center gap-3 px-4 py-3 text-sm hover:bg-secondary transition-colors">
+                      <ShoppingBag className="w-4 h-4" />
+                      Online Shop
+                    </a>
+                  </Link>
+                  <a
+                    href={SITE_DATA.general.discogs}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 px-4 py-3 text-sm hover:bg-secondary transition-colors border-t border-border"
+                  >
+                    <Disc className="w-4 h-4" />
+                    Discogs
                   </a>
-                </Link>
-                <a
-                  href={SITE_DATA.general.discogs}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 text-sm hover:bg-secondary transition-colors border-t border-border"
-                >
-                  <Disc className="w-4 h-4" />
-                  Discogs
-                </a>
+                </div>
               </div>
             )}
           </div>

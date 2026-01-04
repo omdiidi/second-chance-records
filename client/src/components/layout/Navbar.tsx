@@ -31,10 +31,9 @@ export function Navbar() {
     const isActive = location === href;
     return (
       <Link href={href}>
-        <a 
-          className={`text-sm tracking-wide transition-colors duration-200 hover:text-primary ${
-            isActive ? "font-semibold text-primary" : "text-muted-foreground"
-          }`}
+        <a
+          className={`text-sm tracking-wide transition-colors duration-200 hover:text-primary ${isActive ? "font-semibold text-primary" : "text-muted-foreground"
+            }`}
           onClick={() => setIsOpen(false)}
         >
           {label}
@@ -44,24 +43,20 @@ export function Navbar() {
   };
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-sm shadow-sm py-4" : "bg-transparent py-6"
-      }`}
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/95 backdrop-blur-sm shadow-sm py-4" : "bg-transparent py-6"
+        }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/">
           <a className="flex items-center gap-2 group">
-             {/* Open door motif icon */}
-            <div className="w-8 h-8 border-2 border-foreground rounded-t-full relative flex items-end justify-center overflow-hidden transition-transform group-hover:scale-105">
-               <div className="w-1 h-full bg-foreground absolute left-[6px] top-1"></div>
-               <div className="w-1 h-full bg-foreground absolute right-[6px] top-1"></div>
-               <div className="w-8 h-1 bg-foreground absolute bottom-0"></div>
-            </div>
-            <span className="font-serif font-bold text-xl tracking-tight hidden sm:block">
-              Second Chance
-            </span>
+            {/* Open door motif icon */}
+            <img
+              src={SITE_DATA.images.logo}
+              alt="Second Chance Records"
+              className="h-12 w-auto object-contain transition-transform group-hover:scale-105"
+            />
           </a>
         </Link>
 
@@ -79,7 +74,7 @@ export function Navbar() {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button 
+        <button
           className="lg:hidden p-2 text-foreground"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"

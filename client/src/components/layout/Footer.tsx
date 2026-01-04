@@ -7,10 +7,14 @@ export function Footer() {
     <footer className="bg-secondary text-secondary-foreground pt-16 pb-8 border-t border-border mt-auto">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          
+
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="font-serif text-2xl font-bold">Second Chance</h3>
+            <img
+              src={SITE_DATA.images.logo}
+              alt="Second Chance Records"
+              className="h-12 w-auto object-contain"
+            />
             <p className="text-muted-foreground text-sm max-w-xs leading-relaxed">
               {SITE_DATA.mission.subhead}
             </p>
@@ -48,18 +52,18 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="font-medium text-lg">Connect</h4>
             <div className="flex flex-col gap-4">
-               <a 
-                href={SITE_DATA.general.discogs} 
-                target="_blank" 
+              <a
+                href={SITE_DATA.general.discogs}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 <Disc className="w-5 h-5" />
                 Shop on Discogs
               </a>
-              <a 
-                href={SITE_DATA.general.instagram} 
-                target="_blank" 
+              <a
+                href={SITE_DATA.general.instagram}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
               >

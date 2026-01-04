@@ -223,6 +223,7 @@ export const SITE_DATA = {
     vinyl: vinylImage,
     community: communityImage,
     tasha: tashaImage,
+    logo: "/logo.png"
   },
   videos: [
     {

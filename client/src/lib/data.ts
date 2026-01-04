@@ -222,7 +222,7 @@ export const SITE_DATA = {
     hero: heroImage,
     vinyl: vinylImage,
     community: communityImage,
-    tasha: tashaImage,
+    tasha: "/tasha.png",
     logo: "/logo.png"
   },
   videos: [

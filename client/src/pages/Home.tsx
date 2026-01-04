@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, MapPin, Clock, Calendar, Star } from "lucide-react";
@@ -13,6 +14,57 @@ const fadeIn = {
   transition: { duration: 0.6 }
 };
 
+function VideoCard({ video }: { video: typeof SITE_DATA.videos[0] }) {
+  const [isPlaying, setIsPlaying] = React.useState(false);
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  return (
+    <div className="group cursor-pointer space-y-3" onClick={togglePlay}>
+      <div className="aspect-video bg-secondary rounded-md overflow-hidden relative group-hover:shadow-lg transition-all duration-300">
+        {!isPlaying ? (
+          <>
+            <img
+              src={video.thumbnail}
+              alt={video.title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+              <div className="w-14 h-14 rounded-full bg-background/90 flex items-center justify-center shadow-lg transform transition-transform group-hover:scale-110">
+                <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[16px] border-l-primary border-b-[10px] border-b-transparent ml-1"></div>
+              </div>
+            </div>
+          </>
+        ) : (
+          <video
+            ref={videoRef}
+            src={video.src}
+            className="w-full h-full object-cover"
+            controls
+            autoPlay
+            onPause={() => setIsPlaying(false)}
+            onEnded={() => setIsPlaying(false)}
+          />
+        )}
+      </div>
+      <div className="space-y-1">
+        <h3 className="font-medium group-hover:text-primary transition-colors">{video.title}</h3>
+        <p className="text-sm text-muted-foreground">{video.description}</p>
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <div className="space-y-24 pb-24">
@@ -20,16 +72,16 @@ export default function Home() {
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src={SITE_DATA.images.hero} 
-            alt="Record store interior" 
+          <img
+            src={SITE_DATA.images.hero}
+            alt="Record store interior"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-background/80 backdrop-blur-[2px]" />
         </div>
 
         <div className="container relative z-10 px-6 py-12 text-center max-w-4xl mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -103,9 +155,9 @@ export default function Home() {
                   <div>
                     <h3 className="font-medium text-lg mb-1">Find us</h3>
                     <p className="text-muted-foreground">{SITE_DATA.general.address}</p>
-                    <a 
-                      href={`https://maps.google.com/?q=${SITE_DATA.general.address}`} 
-                      target="_blank" 
+                    <a
+                      href={`https://maps.google.com/?q=${SITE_DATA.general.address}`}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary text-sm mt-2 inline-block hover:underline"
                     >
@@ -121,7 +173,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="pt-8">
                 <h3 className="font-serif text-xl mb-4">What you'll find here</h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -136,14 +188,14 @@ export default function Home() {
             </div>
 
             <div className="relative aspect-square md:aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
-               {/* Embed map or just an image placeholder */}
-               <img src={SITE_DATA.images.vinyl} alt="Store interior" className="w-full h-full object-cover" />
+              {/* Embed map or just an image placeholder */}
+              <img src={SITE_DATA.images.vinyl} alt="Store interior" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* 4. Video Section Placeholders */}
+      {/* 4. Video Section */}
       <section className="container px-6 mx-auto">
         <motion.div {...fadeIn} className="space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-4">
@@ -152,20 +204,8 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="group cursor-pointer space-y-3">
-                <div className="aspect-video bg-secondary rounded-md overflow-hidden relative group-hover:shadow-lg transition-all duration-300">
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/5 group-hover:bg-black/10 transition-colors">
-                    <div className="w-12 h-12 rounded-full bg-background/90 flex items-center justify-center shadow-sm">
-                      <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[14px] border-l-primary border-b-[8px] border-b-transparent ml-1"></div>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-medium">Video Title Placeholder {i}</h3>
-                  <p className="text-sm text-muted-foreground">Short description of the video content goes here.</p>
-                </div>
-              </div>
+            {SITE_DATA.videos.map((video) => (
+              <VideoCard key={video.id} video={video} />
             ))}
           </div>
         </motion.div>
@@ -176,7 +216,7 @@ export default function Home() {
         <div className="container px-6 mx-auto max-w-5xl">
           <motion.div {...fadeIn} className="text-center space-y-12">
             <h2 className="text-3xl font-serif">Community Love</h2>
-            
+
             <Carousel className="w-full max-w-3xl mx-auto">
               <CarouselContent>
                 {SITE_DATA.reviews.slice(0, 5).map((review) => (
@@ -213,13 +253,13 @@ export default function Home() {
 
       {/* 6. Closing CTA */}
       <section className="container px-6 mx-auto pb-12">
-        <motion.div 
+        <motion.div
           {...fadeIn}
           className="bg-foreground text-background rounded-2xl p-12 md:p-24 text-center space-y-8 relative overflow-hidden"
         >
           {/* Decorative motif background */}
           <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-             <div className="w-full h-full" style={{ backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 40px, currentColor 40px, currentColor 41px)' }}></div>
+            <div className="w-full h-full" style={{ backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 40px, currentColor 40px, currentColor 41px)' }}></div>
           </div>
 
           <h2 className="text-3xl md:text-5xl font-serif relative z-10">
@@ -227,9 +267,9 @@ export default function Home() {
             and leave with something that gets a second spin.
           </h2>
           <div className="relative z-10 pt-4">
-             <Button size="lg" variant="secondary" className="text-lg px-10 py-6 h-auto" asChild>
-               <Link href="/visit">Plan your visit</Link>
-             </Button>
+            <Button size="lg" variant="secondary" className="text-lg px-10 py-6 h-auto" asChild>
+              <Link href="/visit">Plan your visit</Link>
+            </Button>
           </div>
         </motion.div>
       </section>

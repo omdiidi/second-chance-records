@@ -223,5 +223,28 @@ export const SITE_DATA = {
     vinyl: vinylImage,
     community: communityImage,
     tasha: tashaImage,
-  }
+  },
+  videos: [
+    {
+      id: 1,
+      title: "Video Title Placeholder 1",
+      description: "Short description of the video content goes here.",
+      src: "/videos/video1.mp4",
+      thumbnail: "https://images.unsplash.com/photo-1514525253440-b393452e8d26?w=800&q=80"
+    },
+    {
+      id: 2,
+      title: "Video Title Placeholder 2",
+      description: "Short description of the video content goes here.",
+      src: "/videos/video2.mp4",
+      thumbnail: "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?w=800&q=80"
+    },
+    {
+      id: 3,
+      title: "Video Title Placeholder 3",
+      description: "Short description of the video content goes here.",
+      src: "/videos/video3.mp4",
+      thumbnail: "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=800&q=80"
+    }
+  ]
 };
